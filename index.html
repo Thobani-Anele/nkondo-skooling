@@ -1,143 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nkondo Schooling — Live Class</title>
-  <meta name="description" content="Nkondo Schooling: one live class, AI helper, whiteboard, and chat — all in your browser." />
-  <link rel="icon" href="assets/logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nkondo Schooling</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="Nkondo Schooling logo" class="logo"/>
-        <div>
-          <div class="brand-title">Nkondo Schooling</div>
-          <div class="brand-sub">Beautiful. Calm. Colourful.</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#live">Live Class</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Nkondo Schooling</h1>
+    <p>A smart, social, and interactive learning space.</p>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Welcome to Nkondo Schooling</h1>
-        <p>Your live class happens <strong>right here on this website</strong> — no downloads.</p>
-        <div class="cta-row">
-          <a href="#live" class="btn btn-primary">Enter Live Class</a>
-          <a id="copyLinkBtn" class="btn btn-ghost" href="#">Copy Class Link</a>
-        </div>
-        <p class="note">Meeting room: <code id="roomNameLabel">NkondoClassroom</code></p>
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What is Nkondo Schooling?</h3>
+        <p>Nkondo Schooling is an online platform where teachers and learners can engage in live classes, study together, and socialize in a fun and educational environment.</p>
       </div>
-      <div class="bg-decor"></div>
-    </section>
-
-    <section id="about" class="section container">
-      <h2>About the space</h2>
-      <ul class="feature-list">
-        <li>🎥 Live video & audio (powered by Jitsi)</li>
-        <li>🗨️ Class chat with an AI helper that moderates questions</li>
-        <li>🖊️ Built-in whiteboard for quick sketches</li>
-        <li>🔗 Private invites by sharing the page link</li>
-      </ul>
-      <p class="meeting-info">
-        <strong>Where are meetings held?</strong> On this website — scroll to <a href="#live">Live Class</a> and join. 
-        You can also open the room directly: <a id="directRoomLink" target="_blank" rel="noreferrer">Open in new tab</a>.
-      </p>
-    </section>
-
-    <section id="live" class="section container live-grid">
-      <div class="live-left">
-        <div class="card card-video">
-          <div class="card-title">Live Class</div>
-          <iframe
-            id="jitsiFrame"
-            title="Nkondo Schooling Live Class"
-            allow="camera; microphone; fullscreen; display-capture"
-            referrerpolicy="origin"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div class="card">
-          <div class="card-title tools-title">Whiteboard</div>
-          <div class="whiteboard-toolbar">
-            <label class="color">
-              <span>Colour</span>
-              <input type="color" id="wbColor" value="#111827"/>
-            </label>
-            <button id="wbClear" class="btn btn-small">Clear</button>
-            <button id="wbSave" class="btn btn-small">Save PNG</button>
-          </div>
-          <canvas id="whiteboard" width="1200" height="600"></canvas>
-        </div>
+      <div class="faq-item">
+        <h3>Can learners study without a teacher?</h3>
+        <p>Yes! Learners can create their own study rooms, invite friends, or meet new people to learn together anytime.</p>
       </div>
-
-      <aside class="live-right">
-        <div class="card">
-          <div class="card-title">Class Chat</div>
-          <div id="chatLog" class="chat-log" aria-live="polite"></div>
-          <form id="chatForm" class="chat-form">
-            <input id="chatInput" class="input" placeholder="Ask a question..." autocomplete="off" />
-            <button class="btn btn-primary" type="submit">Send</button>
-          </form>
-        </div>
-
-        <div class="card">
-          <div class="card-title">AI Helper</div>
-          <p class="muted">I help answer questions and keep the chat clean.</p>
-          <div class="bot-actions">
-            <button class="btn btn-small" data-tip="tips">Give me a tip</button>
-            <button class="btn btn-small" data-tip="rules">Show rules</button>
-          </div>
-        </div>
-      </aside>
+      <div class="faq-item">
+        <h3>What makes Nkondo Schooling special?</h3>
+        <p>It combines the best of Zoom, Teams, and social media with a friendly AI teacher bot to guide learners and answer questions in multiple South African languages.</p>
+      </div>
     </section>
 
-    <section id="contact" class="section container">
-      <h2>Contact</h2>
-      <p>WhatsApp / Call: <a href="tel:+27632037809">063 203 7809</a></p>
-      <p>Email: <a href="mailto:hello@nkondoschooling.example">hello@nkondoschooling.example</a> (placeholder)</p>
+    <section id="chatbot">
+      <h2>Ask our Friendly Teacher Bot</h2>
+      <div id="chatbox">
+        <div id="chatlog"></div>
+        <input type="text" id="userInput" placeholder="Type your question..." />
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="startVoice()">🎤 Speak</button>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container foot-inner">
-      <span>&copy; <span id="year"></span> Nkondo Schooling</span>
-      <span>Made for teachers & learners</span>
-    </div>
-  </footer>
-
-  <script>
-    // Config
-    const ROOM_NAME = "NkondoClassroom"; // one live class
-    document.getElementById('roomNameLabel').textContent = ROOM_NAME;
-    const directUrl = "https://meet.jit.si/" + encodeURIComponent(ROOM_NAME);
-    const frame = document.getElementById('jitsiFrame');
-    frame.src = directUrl + '#userInfo.displayName=' + encodeURIComponent('"Guest"');
-    const directRoomLink = document.getElementById('directRoomLink');
-    directRoomLink.href = directUrl;
-
-    document.getElementById('copyLinkBtn').addEventListener('click', (e)=>{
-      e.preventDefault();
-      const link = location.href.split('#')[0] + '#live';
-      navigator.clipboard.writeText(link).then(()=>{
-        alert('Class link copied: ' + link);
-      });
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
