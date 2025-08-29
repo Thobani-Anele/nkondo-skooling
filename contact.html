@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nkondo Schooling - Home</title>
+<title>Nkondo Schooling - Contact</title>
 <link rel="stylesheet" href="../styles/styles.css">
+<script src="../scripts/contact.js" defer></script>
 </head>
 <body>
 <nav>
@@ -14,7 +15,12 @@
   <a href="study-groups.html">Study Groups</a>
   <a href="contact.html">Contact</a>
 </nav>
-<h1>Welcome to Nkondo Schooling</h1>
-<p>Your social and fun way to learn together!</p>
+<h1>Contact Us</h1>
+<form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+</form>
 </body>
 </html>

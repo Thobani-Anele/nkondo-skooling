@@ -1,23 +1,6 @@
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;color:#123}a{color:#0b6bff}
-.topbar{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:linear-gradient(90deg,#a8edea,#fed6e3);border-bottom:1px solid #fff7}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:56px;height:56px}
-.tag{margin:0;color:#333b}
-.nav a{margin:0 8px;text-decoration:none;font-weight:600;color:#123}
-main{max-width:960px;margin:24px auto;padding:0 16px;display:grid;gap:16px}
-.card{background:#fff;border:1px solid #0001;border-radius:16px;box-shadow:0 8px 24px #0000000d;padding:16px}
-.controls{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}
-.controls input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid #0002}
-.controls button{padding:10px 14px;border:0;border-radius:10px;background:#6c5ce7;color:#fff;font-weight:700;cursor:pointer}
-.controls button:hover{background:#5849d6}
-.toggle{display:flex;align-items:center;gap:8px;margin-top:6px}
-.chatlog{height:300px;overflow:auto;border:1px solid #0002;border-radius:12px;padding:10px;background:#f8fafc}
-.msg{padding:8px 10px;border-radius:10px;margin:6px 0;max-width:85%}
-.me{background:#cce5ff;margin-left:auto}
-.bot{background:#d4edda}
-#room-name{min-width:220px}
-.room-link{margin:8px 0;color:#055}
-.room-area{display:grid;gap:8px}
-#room-notes{height:140px;width:100%;padding:10px;border-radius:12px;border:1px solid #0002}
-.faq details{border:1px solid #0002;border-radius:10px;padding:8px 10px;margin:8px 0;background:#fcfcff}
-footer{padding:24px;text-align:center;color:#456}
+body { font-family: Arial; margin:0; padding:0; background:#f4f4f4; }
+nav { background:#333; padding:1rem; }
+nav a { color:white; margin:0 1rem; text-decoration:none; }
+form { margin:1rem 0; display:flex; flex-direction:column; width:300px; }
+form input, form textarea { margin:0.5rem 0; padding:0.5rem; }
+form button { padding:0.5rem; background:#333; color:white; border:none; cursor:pointer; }
