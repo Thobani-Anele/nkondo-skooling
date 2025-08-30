@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Rooms — Nkondo Skooling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="Nkondo Skooling" class="logo" />
+        <span class="brand-name">Nkondo Skooling</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="topics.html">Topics</a>
+        <a href="study-rooms.html" class="active">Study Rooms</a>
+        <a href="study-groups.html">Study Groups</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="chatbot.html">Chatbot</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn-ghost">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section style="margin:2rem 0">
+      <h1>Study Rooms</h1>
+      <p class="lead">Choose a room to jump into a focused and elegant study session. Rooms are designed for clarity, practice, and momentum.</p>
+    </section>
+
+    <section class="room-grid">
+      <div class="card">
+        <h3>Math — Foundations</h3>
+        <p>30-minute guided session with practice problems and a 5-minute recap.</p>
+        <div style="margin-top:.8rem">
+          <a class="btn-primary" href="#">Join Room</a>
+          <a class="btn-outline" href="#">Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Physics — Mechanics</h3>
+        <p>Problem-solving room for kinematics and dynamics — small groups.</p>
+        <div style="margin-top:.8rem">
+          <a class="btn-primary" href="#">Join Room</a>
+          <a class="btn-outline" href="#">Details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Coding — Algorithms</h3>
+        <p>Practice algorithms in short guided sprints with peer review.</p>
+        <div style="margin-top:.8rem">
+          <a class="btn-primary" href="#">Join Room</a>
+          <a class="btn-outline" href="#">Details</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year2"></span> Nkondo Skooling</div>
+      <div class="footer-right"><a href="contact.html">Contact</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
