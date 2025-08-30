@@ -26,7 +26,6 @@
         <a href="study-groups.html">Study Groups</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="chatbot.html">Chatbot</a>
       </nav>
 
       <div class="header-actions">
@@ -119,6 +118,25 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating AI assistant button (site-wide) -->
+  <div id="nk-chat" class="nk-chat">
+    <button id="nk-chat-open" class="nk-chat-btn" aria-label="Open assistant">🤖</button>
+
+    <div id="nk-chat-modal" class="nk-chat-modal" aria-hidden="true">
+      <header class="nk-chat-header">
+        <strong>Nkondo Assistant</strong>
+        <button id="nk-chat-close" class="nk-close">✕</button>
+      </header>
+      <div class="nk-chat-body">
+        <div id="nk-messages" class="nk-messages"></div>
+      </div>
+      <footer class="nk-chat-footer">
+        <input id="nk-input" placeholder="Ask about a document, room, or study plan..." />
+        <button id="nk-send" class="btn-ghost">Send</button>
+      </footer>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -21,7 +21,6 @@
         <a href="study-groups.html">Study Groups</a>
         <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
-        <a href="chatbot.html">Chatbot</a>
       </nav>
       <div class="header-actions">
         <button id="theme-toggle" class="btn-ghost">🌙</button>
@@ -32,37 +31,64 @@
   <main class="container">
     <section style="margin:2rem 0">
       <h1>Study Rooms</h1>
-      <p class="lead">Choose a room to jump into a focused and elegant study session. Rooms are designed for clarity, practice, and momentum.</p>
+      <p class="lead">Choose a room to jump into a focused and elegant study session. Each room has its own notebook and chat assistant.</p>
     </section>
 
-    <section class="room-grid">
-      <div class="card">
+    <section class="room-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <article class="card" style="padding:14px" data-room-id="math-foundations">
         <h3>Math — Foundations</h3>
         <p>30-minute guided session with practice problems and a 5-minute recap.</p>
-        <div style="margin-top:.8rem">
-          <a class="btn-primary" href="#">Join Room</a>
-          <a class="btn-outline" href="#">Details</a>
+        <div style="margin-top:.8rem;display:flex;gap:8px">
+          <a class="btn-primary" href="virtual-classroom.html?room=math-foundations">Enter Classroom</a>
+          <button class="btn-outline open-notebook" data-room="math-foundations">Open Notebook</button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card" style="padding:14px" data-room-id="physics-mech">
         <h3>Physics — Mechanics</h3>
         <p>Problem-solving room for kinematics and dynamics — small groups.</p>
-        <div style="margin-top:.8rem">
-          <a class="btn-primary" href="#">Join Room</a>
-          <a class="btn-outline" href="#">Details</a>
+        <div style="margin-top:.8rem;display:flex;gap:8px">
+          <a class="btn-primary" href="virtual-classroom.html?room=physics-mech">Enter Classroom</a>
+          <button class="btn-outline open-notebook" data-room="physics-mech">Open Notebook</button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card" style="padding:14px" data-room-id="coding-algo">
         <h3>Coding — Algorithms</h3>
         <p>Practice algorithms in short guided sprints with peer review.</p>
-        <div style="margin-top:.8rem">
-          <a class="btn-primary" href="#">Join Room</a>
-          <a class="btn-outline" href="#">Details</a>
+        <div style="margin-top:.8rem;display:flex;gap:8px">
+          <a class="btn-primary" href="virtual-classroom.html?room=coding-algo">Enter Classroom</a>
+          <button class="btn-outline open-notebook" data-room="coding-algo">Open Notebook</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- In-page lightweight notebook modal (re-uses notebook component) -->
+    <div id="notebook-modal" class="nk-chat-modal" aria-hidden="true" style="right:auto;left:20px;bottom:20px;width:720px;max-width:calc(100vw - 40px);height:520px;">
+      <header class="nk-chat-header">
+        <strong>Notebook (room)</strong>
+        <button id="notebook-close" class="nk-close">✕</button>
+      </header>
+      <div class="nk-chat-body" style="display:flex;flex-direction:column;padding:14px;">
+        <div class="notebook" data-room-id="">
+          <aside class="notebook-sidebar">
+            <div style="display:flex;gap:8px;margin-bottom:8px">
+              <input class="note-title" placeholder="Note title" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)" />
+              <button class="note-new btn-ghost">New</button>
+            </div>
+            <div class="notes-list"></div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="note-delete btn-ghost">Delete</button>
+              <button class="note-export btn-ghost">Export</button>
+            </div>
+          </aside>
+          <div class="notebook-editor" contenteditable="true" aria-label="Notebook editor" style="min-height:380px">
+            Start typing notes...
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+
   </main>
 
   <footer class="site-footer">
@@ -72,6 +98,43 @@
     </div>
   </footer>
 
+  <!-- Site-wide assistant snippet (copy this into other pages to enable the assistant there) -->
+  <div id="nk-chat" class="nk-chat">
+    <button id="nk-chat-open" class="nk-chat-btn" aria-label="Open assistant">🤖</button>
+    <div id="nk-chat-modal" class="nk-chat-modal" aria-hidden="true">
+      <header class="nk-chat-header">
+        <strong>Nkondo Assistant</strong>
+        <button id="nk-chat-close" class="nk-close">✕</button>
+      </header>
+      <div class="nk-chat-body">
+        <div id="nk-messages" class="nk-messages" style="display:flex;flex-direction:column;gap:10px"></div>
+      </div>
+      <footer class="nk-chat-footer">
+        <input id="nk-input" placeholder="Ask about a document, room, or study plan..." />
+        <button id="nk-send" class="btn-ghost">Send</button>
+      </footer>
+    </div>
+  </div>
+
   <script src="script.js"></script>
+
+  <script>
+    // tiny helper to wire the in-page notebook modal to open for a given room id
+    document.querySelectorAll('.open-notebook').forEach(b => {
+      b.addEventListener('click', (e) => {
+        const room = b.dataset.room || 'default';
+        const modal = document.getElementById('notebook-modal');
+        const nb = modal.querySelector('.notebook');
+        nb.dataset.roomId = room;
+        modal.setAttribute('aria-hidden','false');
+        // Simple, safe approach: reload page so notebook initializer picks up the data attribute.
+        // Replace with dynamic init if you want smoother UX.
+        setTimeout(() => location.reload(), 10);
+      });
+    });
+    document.getElementById('notebook-close').addEventListener('click', () => {
+      document.getElementById('notebook-modal').setAttribute('aria-hidden','true');
+    });
+  </script>
 </body>
 </html>
